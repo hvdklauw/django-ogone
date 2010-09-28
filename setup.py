@@ -16,14 +16,13 @@ try:
 except: 
     LICENSE = None
 
-
 setup(
     name = 'django-ogone',
-    version = __version__,
+    version = '0.1',
     description='Python/Django client to the ogone payment system.',
     long_description=README,
-    author = __maintainer__,
-    author_email = __email__,
+    author = 'Thierry Schellenbach',
+    author_email = 'thierryschellenbach at googles great mail service',
     license = LICENSE,
     url = 'http://github.com/tschellenbach/Django-ogone',
     packages = find_packages(exclude=['examples']),
