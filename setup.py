@@ -3,7 +3,6 @@
 import distribute_setup
 distribute_setup.use_setuptools('0.6.10')
 
-from django_ogone import __version__, __maintainer__, __email__
 from setuptools import setup, find_packages
 
 try:
