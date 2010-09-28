@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+import distribute_setup
+distribute_setup.use_setuptools('0.6.10')
+
 from django_ogone import __version__, __maintainer__, __email__
 from setuptools import setup, find_packages
 
@@ -23,8 +26,7 @@ setup(
     author_email = __email__,
     license = LICENSE,
     url = 'http://github.com/tschellenbach/Django-ogone',
-    packages = find_packages(),
-    data_files=('',['README.md', 'LICENSE.txt']),
+    packages = find_packages(exclude=['examples']),
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
