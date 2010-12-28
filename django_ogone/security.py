@@ -89,7 +89,7 @@ class OgoneSignature(object):
 
     def _sign_string(self, pre_sign_string):
         hashmethod = getattr(hashlib, self.hash_method)
-        signed = hashmethod(pre_sign_string).hexdigest().upper()
+        signed = hashmethod(pre_sign_string.encode('utf-8')).hexdigest().upper()
         return signed
 
     def signature(self):
