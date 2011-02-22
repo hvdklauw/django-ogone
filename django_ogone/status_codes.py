@@ -58,6 +58,10 @@ Statuses in 2 digits correspond either to 'intermediary' situations or to abnorm
     * 5, this means our system hasn’t sent the requested transaction to the acquirer since the merchant will send the transaction to the acquirer himself, like he specified in his configuration.
 """
 
+import logging
+
+log = logging.getLogger('djanongo_ogone')
+
 STATUS_DESCRIPTIONS = {
     0  : 'Incomplete or invalid',
     1  : 'Cancelled by client',
@@ -123,7 +127,7 @@ def get_status_category(status):
         number into one of these categories of results.
     """
 
-    logging.debug('Processing status message %d', status)
+    log.debug('Processing status message %d', status)
 
     if status in SUCCESS_CODES:
         return SUCCESS_STATUS

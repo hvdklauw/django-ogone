@@ -61,28 +61,28 @@ Usually you would want to use this data to mark the transaction as payed.
 Here an example implementation. Use this to roll your own.
 
 
-from django_ogone.ogone import Ogone
-def order_status_update(request):
-    '''
-    Updates the order status with ogone data.
-    There are two ways of reaching this flow
+    from django_ogone.ogone import Ogone
+    def order_status_update(request):
+        '''
+        Updates the order status with ogone data.
+        There are two ways of reaching this flow
     
-    - payment redirect (user gets redirected through this flow)
-    - ogone server side call (in case of problems ogone will post to our server
-    with an updated version ofo the payment status)
-    '''
-    ogone = Ogone(request)
+        - payment redirect (user gets redirected through this flow)
+        - ogone server side call (in case of problems ogone will post to our server
+        with an updated version ofo the payment status)
+        '''
+        ogone = Ogone(request=request)
     
-    # This tests validity of the signature and 
-    # converts some types to Python stuff
-    ogone.parse_params()
+        # This tests validity of the signature and 
+        # converts some types to Python stuff
+        ogone.parse_params()
     
-    product_id = ogone.get_productid()
-    status = ogone.get_status()
-    status_description = ogone.get_status_description()
-    status_category = ogone.get_status_category()
+        order_id = ogone.get_order_id()
+        status = ogone.get_status()
+        status_description = ogone.get_status_description()
+        status_category = ogone.get_status_category()
     
-    # DO STUFF WITH INFO
+        # DO STUFF WITH INFO
     
 
 ### Resources ###
